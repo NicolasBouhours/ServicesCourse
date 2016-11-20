@@ -43,4 +43,8 @@ export class CmpAComponent {
          this.items = this.dataService.getData(); // LIVE UPDATING
         // this.items = this.dataService.getData().slice(0); RETURN NEW ARRAY : no live updating
     }
+
+    onSend(value: string) {
+        this.dataService.pushData(value);
+    }
 }

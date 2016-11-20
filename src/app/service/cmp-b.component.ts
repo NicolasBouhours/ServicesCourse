@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { LogService } from './log.service';
 import { DataService } from './data.service';
@@ -23,11 +23,17 @@ import { DataService } from './data.service';
     </div>
   `,
 })
-export class CmpBComponent {
+export class CmpBComponent implements OnInit {
     value = '';
     items: string[] = [];
 
     constructor (private logService: LogService, private dataService: DataService) { }
+
+    ngOnInit() {
+        this.dataService.pushedData.subscribe(
+            data => this.value = data
+        );
+    }
 
     onLog(value: string) {
         this.logService.writeToLog(value);
