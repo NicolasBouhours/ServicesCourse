@@ -6,7 +6,7 @@ import { ServiceComponent } from "./service/service.component";
 import { CmpAComponent } from "./service/cmp-a.component";
 import { CmpBComponent } from "./service/cmp-b.component";
 
-import { DataService } from './service/data.service';
+import { DataService, LogService } from './service';
 
 @NgModule({
     declarations: [
@@ -16,7 +16,7 @@ import { DataService } from './service/data.service';
         CmpBComponent
     ],
     imports: [BrowserModule],
-    providers: [DataService],
+    providers: [LogService, DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
